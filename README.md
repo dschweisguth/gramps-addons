@@ -25,7 +25,7 @@ On other OSes, see [the Command Line section of the Gramps manual](https://gramp
 
 ### ConvertPersonNotesToCitations
 
-This tool's ID is convnotestocites.
+This tool's ID is convert_person_notes_to_citations.
 
 This tool does the one-time job of converting Person Notes containing citations (which is how I cited facts in the genealogical program I used previously) into Sources and Citations. It converts notes in either of the following two formats:
 
