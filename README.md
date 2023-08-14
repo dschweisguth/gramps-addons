@@ -45,3 +45,11 @@ The tool converts each note into
 - a new Note, attached to the Citation, containing the facts from the Person Note
 
 It deletes each successfully converted Person Note.
+
+### ConvertOfBirthsToResidences
+
+This tool's ID is convert_of_births_to_residences.
+
+This tool does the one-time job of converting Birth events in places with names beginning with "of " (which is how the genealogical program I used previously exported the fact that the place of origin given for a person is their residence, not their birthplace) to Residence events in places with unprefixed names.
+
+It creates an unprefixed place for each "of " place if one doesn't already exist, and always deletes the "of " place.
