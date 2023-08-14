@@ -17,13 +17,24 @@ class ConvertPersonNotesToCitations(tool.Tool):
         self.convert_notes()
 
     def convert_notes(self):
+        person_count = 0
+        note_count = 0
+        converted_note_count = 0
+        skipped_note_count = 0
         for person in self.db.iter_people():
-            for note_handle in person.get_note_list():
+            person_count += 1
+            for note_handle in person.get_note_list().copy():
+                note_count += 1
                 person_note = self.db.get_note_from_handle(note_handle)
                 if self.convert_personal_knowledge_note(person, person_note):
-                    pass
+                    converted_note_count += 1
                 elif self.convert_document_note(person, person_note):
-                    pass
+                    converted_note_count += 1
+                else:
+                    skipped_note_count += 1
+        print(f"Processed {person_count} people and {note_count} notes. " +
+              f"Converted {converted_note_count} notes. " +
+              f"Skipped {skipped_note_count} notes.")
 
     def convert_personal_knowledge_note(self, person, person_note):
         source_title = "Personal knowledge"
