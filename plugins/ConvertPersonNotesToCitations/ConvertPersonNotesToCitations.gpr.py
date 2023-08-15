@@ -10,6 +10,6 @@ register(TOOL,
     authors = ["Dave Schweisguth"],
     authors_email = ["dave@schweisguth.org"],
     description  = _("Convert appropriately structured person notes to citations"),
-    version = '0.3',
+    version = '0.4',
     gramps_target_version = "5.1",
 )

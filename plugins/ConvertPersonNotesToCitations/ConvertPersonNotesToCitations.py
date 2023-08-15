@@ -1,7 +1,7 @@
 import re
 
 from gramps.gen.db import DbTxn
-from gramps.gen.lib import Citation, Note, NoteType, Source
+from gramps.gen.lib import Citation, Source
 from gramps.gui.plug import tool
 
 class ConvertPersonNotesToCitationsOptions(tool.ToolOptions):
@@ -80,13 +80,9 @@ class ConvertPersonNotesToCitations(tool.Tool):
         with DbTxn("Convert note", self.db) as txn:
             source = self.source(source_title_prefix, source_title, txn)
 
-            citation_note = Note(citation_note_text)
-            citation_note.set_type(NoteType.CITATION)
-            self.db.add_note(citation_note, txn)
-
             citation = Citation()
             citation.set_reference_handle(source.handle)
-            citation.add_note(citation_note.handle)
+            citation.set_page(citation_note_text)
             self.db.add_citation(citation, txn)
 
             person.add_citation(citation.handle)

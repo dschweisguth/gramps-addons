@@ -41,8 +41,7 @@ In the latter format,
 The tool converts each note into
 
 - a Source, titled "Personal knowledge" or "(source ID), (source title), (date)". It creates a single source for "Personal knowledge" and each source ID.
-- a Citation, associated with the Person to whom the Note was attached and to the new Source
-- a new Note, attached to the Citation, containing the facts from the Person Note
+- a Citation, associated with the Person to whom the Note was attached and to the new Source, whose Volume/Page is the facts from the Person Note
 
 It deletes each successfully converted Person Note.
 
