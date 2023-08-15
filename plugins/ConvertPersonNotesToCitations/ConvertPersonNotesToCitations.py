@@ -55,14 +55,13 @@ class ConvertPersonNotesToCitations(tool.Tool):
             return False
         [source_desc, source_id, date, citation_note_text] = match.groups()
         source_id = self.zero_filled(source_id)
-        source_title_prefix = f"{source_id},"
         source_title = source_id
         if source_desc:
             source_title += ", " + source_desc
         if date:
             source_title += ", " + date
-        self.convert_note(person, person_note, source_title_prefix,
-                          source_title, citation_note_text)
+        self.convert_note(person, person_note, source_id, source_title,
+                          citation_note_text)
         return True
 
     def zero_filled(self, source_id):
